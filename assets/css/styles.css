@@ -41,7 +41,6 @@ a {
 
 .logo img {
   object-fit: contain;
-  flex-shrink: 0;
   width: 3.8rem;
   height: 3.8rem;
   border-radius: 1rem;
