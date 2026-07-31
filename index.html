@@ -1,25 +1,520 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
       ES2025 JavaScript: Patterns và Libraries Hot Nhất Cho Developer Việt 2026
     </title>
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism.min.css"
+    />
   </head>
   <body>
     <header class="header">
       <div class="container">
         <nav class="navbar">
-          <div class="navbar__logo">
-            <img src="./assets/img/694743c405102.png" alt="" />
+          <div class="logo">
+            <a href="!#">
+              <img src="./assets/img/694743c405102.png" alt="" />
+            </a>
+            <h1>
+              <a href="#">
+                <span> F8 - BLOG </span>
+              </a>
+            </h1>
+          </div>
+
+          <ul class="nav__list">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">LifeStyle</a>
+            </li>
+            <li>
+              <a href="#">Travel</a>
+            </li>
+            <li>
+              <a href="#">Course</a>
+            </li>
+          </ul>
+
+          <div class="nav__user">
+            <a href="#">
+              <img src="" alt="" />
+            </a>
+            <span>Minh Trong (ミンチョン)</span>
           </div>
         </nav>
       </div>
     </header>
-    <main></main>
-    <footer></footer>
+
+    <hr />
+
+    <main>
+      <div>
+        <article class="blog">
+          <div class="container">
+            <h1 class="blog__title">
+              ES2025 JavaScript: Patterns và Libraries Hot Nhất Cho Developer
+              Việt 2026
+            </h1>
+
+            <div class="blog__author">
+              <a href="#">
+                <img src="./assets/img/699181d60839d.png" alt="" />
+              </a>
+              <div class="blog__author-name">
+                <a href="#">
+                  <span>ミンチョン</span>
+                </a>
+                <p>
+                  4 tháng trước
+                  <span>・</span>
+                  <span>15 phút đọc</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="blog__content">
+              <h2 class="blog__heading">
+                ES2025 ra mắt - cái gì thật sự vào spec?
+              </h2>
+
+              <p>
+                Tháng 6/2025, TC39 chính thức công bố ECMAScript 2025 (ES16).
+                Nếu bạn hay follow Twitter/X dev community, chắc nghe nhiều về
+                pipeline operator hay Temporal API - nhưng cả hai vẫn chưa vào
+                spec. Đừng để bị nhầm.
+              </p>
+
+              <p>Cái thật sự vào ES2025 gồm 6 nhóm tính năng:</p>
+
+              <ul>
+                <li>
+                  <strong>Iterator Helpers</strong>
+                  - global
+                  <code>Iterator</code>
+                  object với
+                  <code>map</code>
+                  ,
+                  <code>filter</code>
+                  ,
+                  <code>take</code>
+                  ,
+                  <code>drop</code>
+                </li>
+                <li>
+                  <strong>Set Methods</strong>
+                  -
+                  <code>union()</code>
+                  ,
+                  <code>intersection()</code>
+                  ,
+                  <code>difference()</code>
+                  ,
+                  <code>symmetricDifference() </code>
+                </li>
+                <li>
+                  <strong>Promise.try()</strong>
+                  - bắt cả sync lẫn async errors trong một chain
+                </li>
+                <li>
+                  <strong>RegExp improvements</strong>
+                  - flag
+                  <code>/v</code>
+                  ,
+                  <code>RegExp.escape()</code>
+                  , duplicate named groups
+                </li>
+                <li>
+                  <strong>Import Attributes</strong>
+                  -
+                  <code
+                    >import data from "./data.json" with { type: "json" }</code
+                  >
+                </li>
+                <li>
+                  <strong>Float16Array</strong>
+                  - typed array 16-bit cho memory-sensitive workloads
+                </li>
+              </ul>
+
+              <div class="blog__img">
+                <figure>
+                  <img
+                    src="./assets/img/section_0_260323080636_69c0921c0cf292.71514803.png"
+                    alt=""
+                  />
+                  <figcaption>
+                    <em>
+                      ES2025 tập trung vào iterator, set, và async - không phải
+                      pipeline operator như nhiều bài viết nhầm
+                    </em>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <p>
+                Node.js 22+ và các browser Chrome/Firefox/Safari release sau
+                tháng 6/2025 đã support native. Không cần polyfill cho
+                production nếu bạn target môi trường đủ mới.
+              </p>
+
+              <p>
+                Pipeline operator và Temporal API? Vẫn đang ở Stage 2-3. Dùng
+                Luxon hoặc date-fns cho date/time là lựa chọn thực tế nhất hiện
+                tại.
+              </p>
+
+              <hr />
+
+              <h2 class="blog__heading">
+                Iterator Helpers và Set Methods - dùng thật trong dự án thế nào?
+              </h2>
+
+              <p>
+                Hai tính năng này mình thấy practical nhất trong ES2025 cho
+                daily work.
+              </p>
+
+              <p>
+                <strong>Iterator Helpers</strong>
+                giải quyết bài toán bạn từng phải import lodash chỉ để
+                <code>map + filter + slice</code>
+                một mảng lớn. Bây giờ không cần nữa:
+              </p>
+
+              <div class="blog__code">
+                <pre class="language-javascript">
+                  <code class="language-javascript">
+                    <span>// Trước ES2015 - load cả mảng vào memory</span>
+                    <span>const</span> result = apiData
+                      .filter(item => item.active)
+                      .map(item => item.name)
+                      .slice(0, 100);
+
+                    <span>//ES2025 - lazy evaluation, chỉ xử lý đến khi đủ 100 item</span>
+                    <span>const</span> result = Iterator.from(apiData)
+                      .filter(item => item.active)
+                      .map(item => item.name)
+                      .take(100)
+                      .toArray();
+                  </code>
+                </pre>
+              </div>
+
+              <p>
+                Khác biệt quan trọng
+                <code>Iterator.from()</code>
+                <strong>lazy</strong>
+                - với mảng 10.000 item nhưng chỉ cần 100 kết quả đầu, nó không
+                xử lý 9.900 item còn lại. Lodash chain cũng làm được điều này,
+                nhưng giờ là native.
+              </p>
+
+              <div class="blog__img">
+                <figure>
+                  <img src="./assets/img/img1.png" alt="" />
+                  <figcaption>
+                    <em>
+                      Lazy evaluation: chỉ xử lý đúng số item cần thiết, tiết
+                      kiệm CPU và memory đáng kể
+                    </em>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <p>
+                <strong>Set methods </strong>
+                thì đặc biệt hữu ích cho permission systems hoặc dedup realtime
+                data
+              </p>
+
+              <div class="blog__code">
+                <pre class="language-javascript">
+                  <code class="language-javascript">
+                    <span>const </span> userRoles = new Set(['admin', 'editor']);
+                    <span>requiredRoles</span> = new Set(['editor', 'viewer']);
+
+                    <span>// Kiểm tra overlap</span>
+                    <span>const </span> hasAccess = !userRoles.intersection(requiredRoles).size === 0;
+
+                    <span>// Chat app: merge messages từ 2 nguồn, không trùng</span>
+                    <span>const </span> allMessages = socketMessages.union(cachedMessages);
+
+                    <span>// Diff để biết message mới</span>
+                    <span>const</span> newMessages = socketMessages.difference(cachedMessages);
+                  </code>
+                </pre>
+              </div>
+
+              <p>
+                Trước đây bạn phải tự viết
+                <code>[...setA].filter(x => setB.has(x))</code>. Dài, khó đọc,
+                dễ bug. Set methods native clean hơn nhiều và chain được với
+                nhau.
+              </p>
+
+              <hr />
+
+              <h2 class="blog__heading">
+                Promise.try() và async/await patterns nâng cao
+              </h2>
+
+              <p>Đây là tính năng mình mong nhất trong ES2025. Vấn đề cũ:</p>
+
+              <div class="blog__code">
+                <pre class="language-javascript">
+                <code class="language-javascript">
+                  <span>
+                    // Bug tiềm ẩn: nếu getUser() throw sync, lỗi không bị catch!</span>
+                    <span>async function loadProfile(id) {
+                        return getUser(id) // sync function, throw không bị catch bởi .catch()
+                          .then(user => fetchDetails(user));
+                      }
+                    </span>
+                </code>
+              </pre>
+              </div>
+
+              <p><code>Promise.try()</code>fix đúng điểm này:</p>
+
+              <div class="blog-code">
+                <pre class="language-javascript">
+                  <code class="language-javascript">
+                    <span>// Promise.try wrap cả sync throw vào promise chain</span>
+                    <span>Promise.try(() => getUser(id))
+                        .then(user => fetchDetails(user))
+                        .catch(err => handleError(err)); // bắt được cả sync lẫn async error
+                    </span>
+                  </code>
+                </pre>
+              </div>
+
+              <p>
+                <strong
+                  >Pattern mạnh hơn: kết hợp với async generators cho streaming
+                  data
+                </strong>
+              </p>
+
+              <div class="blog-code">
+                <pre class="language-javascript">
+                  <code class="language-javascript">
+                    <span>async function* streamDashboardData(endpoint) {
+                      const response = await Promise.try(() => fetch(endpoint));
+                      const reader = response.body.getReader();
+                      while (true) {
+                        const { done, value } = await reader.read();
+                        if (done) break;
+
+                        // Dùng Iterator Helpers để transform ngay trên stream
+                        yield* Iterator.from([value])
+                          .map(chunk => JSON.parse(new TextDecoder().decode(chunk)))
+                          .filter(data => data.type === 'update');
+                        }
+                    }
+                  
+                    // Consume trong component
+                    for await (const update of streamDashboardData('/api/stream')) {
+                      updateUI(update);
+                    }</span>
+                  </code>
+                </pre>
+              </div>
+
+              <div class="blog__img">
+                <figure>
+                  <img src="./assets/img/img2.png" alt="" />
+                  <figcaption>
+                    <em>
+                      Promise.try + async generator = xử lý stream data không bị
+                      miss error ở bất kỳ điểm nào
+                    </em>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <p>
+                <strong>Top-level await</strong>
+                (ES2022 nhưng hay dùng chung với ES2025 patterns) cũng clean hơn
+                khi kết hợp Set ops:
+              </p>
+
+              <div class="blog-code">
+                <pre class="language-javascript">
+                    <code class="language-javascript">
+                      <span>// module.js - init một lần, share across module</span>
+                      <span>const</span> initialPermissions = new Set(await fetchUserPermissions());
+                      <span>const</span> const cachedPermissions = new Set(JSON.parse(localStorage.getItem('perms') ?? '[]'));
+
+                      <span>// Merge, loại bỏ duplicate</span>
+                      <span>export const</span> permissions = initialPermissions.union(cachedPermissions);
+                    </code>
+                  </pre>
+              </div>
+
+              <p>
+                Nếu bạn muốn nền tảng JavaScript vững để apply những patterns
+                này ngay, khóa
+                <a href="#">JavaScript Pro </a>
+                cover sâu về async/await, closures, và cách JS engine thực sự
+                hoạt động - đủ để đọc ES2025 spec mà hiểu rõ tại sao.
+              </p>
+
+              <hr />
+
+              <h2 class="blog__heading">
+                RxJS vs Zustand - chọn gì cho realtime web app?
+              </h2>
+              <p>
+                Mình sẽ không nói "cái nào tốt hơn" vì câu trả lời phụ thuộc vào
+                loại app bạn đang build.
+              </p>
+
+              <p>
+                <strong>RxJS</strong>
+                <a href="#">(RxJS docs)</a>
+                là reactive programming library với Observable - phù hợp khi
+                data flow của bạn phức tạp, nhiều nguồn, cần backpressure hay
+                timing control:
+              </p>
+
+              <div class="blog-code">
+                <pre class="language-javascript">
+                    <code class="language-javascript">
+                      <span>import { fromEvent, Subject } from 'rxjs';</span>
+                      <span>import { debounceTime, scan, filter } from 'rxjs/operators';</span>
+
+                      <span>const</span> socket = new WebSocket('wss://api.example.com/live');
+
+                      <span>// Stream WebSocket messages, debounce 300ms, accumulate</span>
+                      <span>const</span>liveData$ = fromEvent(socket, 'message').pipe(
+                        debounceTime(300),
+                        filter(event => event.data !== 'ping'),
+                        scan((acc, event) => [...acc.slice(-99), JSON.parse(event.data)], []),
+                      );
+                      <span>liveData$.subscribe(messages => updateDashboard(messages));</span>
+                    </code>
+                  </pre>
+              </div>
+
+              <p>
+                <strong>Zustand</strong>
+                <a href="#">(Zustand GitHub)</a>
+                đi theo hướng ngược lại - minimal, hooks-based, không
+                boilerplate:
+              </p>
+
+              <div class="blog-code">
+                <pre class="language-javascript">
+                    <code class="language-javascript">
+                      <span>import { create } from 'zustand';</span>
+
+                      <span>const</span> useChatStore = create((set, get) => ({
+                        messages: [],
+                        connected: false,
+                        <span>// ES2025 Promise.try trong action</span>
+                        <span>connectSocket: async (url) => {
+                          await Promise.try(async () => {
+                            <span>const </span> ws = new WebSocket(url);
+                            set({ connected: true });
+
+                            ws.onmessage = (e) => set(state => ({
+                              messages: [...state.messages, JSON.parse(e.data)]
+                            }));
+                          });
+                        },</span>
+                      }));
+
+                      <span>// Trong component</span>
+                      <span>function ChatApp() {
+                        const { messages, connectSocket } = useChatStore()
+                        // ...
+                      }</span>
+                    </code>
+                  </pre>
+              </div>
+
+              <div class="blog__img">
+                <figure>
+                  <img src="./assets/img/img3.png" alt="" />
+                  <figcaption>
+                    <em
+                      >RxJS cho stream phức tạp, Zustand cho React app state -
+                      chọn đúng tool cho đúng bài toán</em
+                    >
+                  </figcaption>
+                </figure>
+              </div>
+
+              <p>Bảng so sánh thực tế:</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tiêu chí</th>
+                    <th>RxJS v8.x</th>
+                    <th>Zustand v5.x</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Bundle size</td>
+                    <td>~50KB</td>
+                    <td>&lt;2KB</td>
+                  </tr>
+                  <tr>
+                    <td>Learning curve</td>
+                    <td>Cao (marble diagrams)</td>
+                    <td>Thấp</td>
+                  </tr>
+                  <tr>
+                    <td>Phù hợp cho</td>
+                    <td>Multiplayer, live feed, complex streams</td>
+                    <td>React SPA, UI state</td>
+                  </tr>
+                  <tr>
+                    <td>ES2025 synergy</td>
+                    <td><code>Iterator.from(observable)</code></td>
+                    <td><code>Promise.try</code> trong actions</td>
+                  </tr>
+                  <tr>
+                    <td>TypeScript</td>
+                    <td>Tốt</td>
+                    <td>Rất tốt (generics cải thiện v5+)</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p>
+                Cho hầu hết React app Việt Nam (dashboard, e-commerce, admin
+                panel) - Zustand là đủ và ít đau đầu hơn. RxJS chỉ worth it khi
+                bạn xây multiplayer game, collaborative editor, hoặc financial
+                live feed cần control timing cực chính xác.
+              </p>
+
+              <p>
+                Nếu bạn đang build với ReactJS và chưa rõ cách quản lý state từ
+                cơ bản, khóa
+                <a href="#"> Xây Dựng Website với ReactJS</a>
+                sẽ giúp bạn hiểu đúng từ component state đến context trước khi
+                nhảy vào Zustand.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+    <footer>
+      <p>© 2018 - 2026 F8. Nền tảng học lập trình hàng đầu Việt Nam.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.min.js"></script>
   </body>
 </html>

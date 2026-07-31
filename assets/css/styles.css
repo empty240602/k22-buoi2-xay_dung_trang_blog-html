@@ -20,3 +20,190 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo a {
+  color: #333;
+  font-weight: bold;
+}
+
+.logo img {
+  object-fit: contain;
+  flex-shrink: 0;
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 1rem;
+}
+
+.nav__list {
+  display: flex;
+  gap: 40px;
+}
+
+.nav__list a {
+  color: #333;
+}
+
+.blog__title {
+  color: #222;
+  margin-top: 40px;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.blog__author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 30px 0;
+}
+
+.blog__author img {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  display: block;
+}
+
+.blog__author-name > a > span {
+  margin-bottom: 4px;
+  font-size: 1.6rem;
+  color: #222;
+  font-weight: bold;
+  display: block;
+}
+
+.blog__author-name > p {
+  color: #757575;
+}
+
+code {
+  padding: 1px 3px;
+  border-radius: 3px;
+  background-color: #c9fffc;
+  word-break: keep-all;
+}
+
+figure > img {
+  max-width: 100%;
+  max-height: 480px;
+  box-shadow: 0 0 2px #003;
+  vertical-align: bottom;
+  border-radius: 12px;
+}
+
+.blog__heading {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.blog__content a {
+  color: #f05123;
+  text-decoration: underline;
+}
+
+.blog__content > p {
+  margin: 16px 0;
+}
+
+.blog__content > p > strong {
+  font-weight: bold;
+}
+
+.blog__content > ul {
+  list-style: outside;
+  padding-left: 24px;
+}
+
+.blog__content > ul > li {
+  margin-bottom: 10px;
+}
+
+.blog__content > ul > li > strong {
+  font-weight: bold;
+}
+
+.blog__img {
+  text-align: center;
+}
+
+.blog__img figure {
+  display: inline-block;
+  margin: 0;
+}
+
+.blog__img img {
+  max-width: 100%;
+  margin-top: 10px;
+}
+
+.blog__img figcaption {
+  text-align: center;
+  margin-top: 15px;
+}
+
+hr {
+  margin: 40px 0;
+}
+
+hr:first-of-type {
+  margin: 0px 0px;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+thead {
+  background: #f8fafc;
+}
+
+th,
+td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  font-weight: 600;
+}
+
+tbody > tr:last-child > td {
+  border-bottom: none;
+}
+
+tbody > tr:nth-child(even) {
+  background: #fafafa;
+}
+
+footer {
+  color: #a9b3bb;
+  background-color: #181821;
+  padding: 20px 0px 20px;
+  font-size: 1.4rem;
+  overflow: hidden;
+}
+footer p {
+  text-align: center;
+}
